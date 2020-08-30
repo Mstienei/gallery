@@ -43,6 +43,7 @@ pipeline {
                 }
             } 
         }
+    }
         post {
         success {
             emailext attachLog: true,
@@ -56,7 +57,6 @@ pipeline {
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_FAILURE,
                 to: EMAIL_RECEPIENT
+             }
         }
-    }
-    }
 }
