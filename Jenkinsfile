@@ -64,4 +64,13 @@ pipeline {
                 to: EMAIL_RECEPIENT
              }
         }
+        post {
+        success {
+            slackSend color: "good", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+        }
+        failure {
+            slackSend color: "warning", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+             }
+        }
+}
 }
