@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Slack Notification'){
             steps {
-                slackSend color: "#439FE0", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                slackSend color: "good", message: "Build Started :see_no_evil: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
             }
         }
     }
