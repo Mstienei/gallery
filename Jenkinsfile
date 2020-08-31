@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Slack Notification'){
             steps {
-                slackSend color: "good", message: "Build Started :see_no_evil: ${env.JOB_NAME} ${env.BUILD_NUMBER} <${env.BUILD_URL}|Open in Jenkins>"
+                slackSend color: "good", message: "Build Started :see_no_evil: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
         }
     }
@@ -55,6 +55,7 @@ pipeline {
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_SUCCESS,
                 to: EMAIL_RECEPIENT
+            slackSend color: "good", message: "Build Successful :see_no_evil: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
         }
 
         failure {
@@ -62,6 +63,7 @@ pipeline {
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_FAILURE,
                 to: EMAIL_RECEPIENT
+            slackSend color: "dange", message: "Build Failed :see_no_evil: ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
              }
         }
 }
