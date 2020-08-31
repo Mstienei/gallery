@@ -55,7 +55,7 @@ pipeline {
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_SUCCESS,
                 to: EMAIL_RECEPIENT
-            slackSend color: "#33FF3C", message: "Build Successful :sunglasses: ${env.JOB_NAME} ${env.BUILD_NUMBER} <${env.BUILD_URL}|-Open>"
+            slackSend color: "#33FF3C", message: "Build Successful :sunglasses: ${env.JOB_NAME} ${env.BUILD_NUMBER} <https://limitless-meadow-81845.herokuapp.com/|-Open>"
         }
 
         failure {
@@ -63,7 +63,7 @@ pipeline {
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_FAILURE,
                 to: EMAIL_RECEPIENT
-            slackSend color: "danger", message: "Build Failed :worried: ${env.JOB_NAME} ${env.BUILD_NUMBER} <https://limitless-meadow-81845.herokuapp.com/|-Open>"
+            slackSend color: "danger", message: "Build Failed :worried: ${env.JOB_NAME} ${env.BUILD_NUMBER} <${env.BUILD_URL}|-Open>"
              }
         }
 }
