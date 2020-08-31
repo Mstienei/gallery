@@ -54,17 +54,14 @@ pipeline {
             emailext attachLog: true,
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_SUCCESS,
-                to: EMAIL_RECEPIENT,
-                slackSend color: "good", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                to: EMAIL_RECEPIENT
         }
 
         failure {
             emailext attachLog: true,
                 body: EMAIL_BODY,
                 subject: EMAIL_SUBJECT_FAILURE,
-                to: EMAIL_RECEPIENT,
-                slackSend color: "warning", message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
-
+                to: EMAIL_RECEPIENT
              }
         }
 }
