@@ -43,6 +43,11 @@ pipeline {
                 }
             } 
         }
+        stage('Slack Notification'){
+            steps {
+                slackSend "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+            }
+        }
     }
         post {
         success {
